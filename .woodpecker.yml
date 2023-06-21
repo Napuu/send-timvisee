@@ -17,19 +17,3 @@ pipeline:
     when:
       event: push
       branch: main
-
-  depl:
-    image: appleboy/drone-ssh
-    settings:
-      host:
-        from_secret: DEPLOYMENT_SERVER_HOST
-      username:
-        from_secret: DEPLOYMENT_SERVER_USER
-      key:
-        from_secret: DEPLOYMENT_SERVER_KEY
-      port: 22
-      script:
-        from_secret: PROD_DEPLOYMENT_NAME
-    when:
-      event: push
-      branch: main
